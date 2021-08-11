@@ -9,7 +9,7 @@ class AdminProposal extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['proposal_id','user_id','price','comments'];
+    protected $fillable = ['proposal_id','admin_id','price','comments'];
 
     public function adminproposalimages()
     {

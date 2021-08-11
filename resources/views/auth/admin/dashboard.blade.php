@@ -1,16 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Laravel 8 Admin Auth - laravelcode.com</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet">
-</head>
-<body>
+@extends('layouts.admin.app')
 
+@section('content')
+
+{{-- 
 <div class="container">
     Welcome, {{ auth()->guard('admin')->user()->name }} <br>
     In the Admin Dashboard.....
 </div>
-<a href="{{ route('adminLogout') }}">Logout</a>
+<a href="{{ route('adminLogout') }}">Logout</a> --}}
 
-</body>
-</html>
+
+@endsection
+

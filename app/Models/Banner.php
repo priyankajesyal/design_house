@@ -13,6 +13,6 @@ class Banner extends Model
         'title',
         'image',
         'description',
-        'user_id'
+        'admin_id'
     ];
 }

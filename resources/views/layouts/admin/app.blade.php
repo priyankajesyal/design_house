@@ -26,11 +26,9 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
 
 
-    @livewireStyles
 </head>
 
 <body id="page-top">
-    @livewireScripts
     <!-- Page Wrapper -->
     <div id="wrapper">
 
@@ -67,20 +65,15 @@
                                     <i class="mr-2 text-gray-400 fas fa-user fa-sm fa-fw"></i>
                                     Profile
                                 </a>
-
                                 <div class="dropdown-divider"></div>
                                 {{-- --}}
-
-                                <a class="dropdown-item" href="{{ route('admin.logout') }}">
+                                <a class="dropdown-item" href="{{ route('adminLogout') }}">
                                     <i class="mr-2 text-gray-400 fas fa-sign-out-alt"></i>
                                     Logout
                                 </a>
-
                             </div>
                         </li>
-
                     </ul>
-
                 </nav>
                 <!-- End of Topbar -->
 
@@ -111,9 +104,6 @@
     <a class="rounded scroll-to-top" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
-
-
-
 
     <!-- Bootstrap core JavaScript-->
     <script src="{{ asset('admins/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>

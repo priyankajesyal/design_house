@@ -65,8 +65,8 @@ class AdminAuthController extends Controller
         {
             $user = auth()->guard('admin')->user();
 
-            Session::put('success','You are Login successfully!!');
-            return redirect()->route('dashboard');
+            // Session::put('success','You are Login successfully!!');
+            return redirect()->route('dashboard')->with('success', 'You are Login successfully!!');
 
         } else {
             return back()->with('error','your username and password are wrong.');
