@@ -28,7 +28,7 @@ class BannerFactory extends Factory
             'title' => $faker->word,
             'description' => $faker->sentence,
             'image' => $faker->image('storage/app/public/banner',400,300, null, false),
-            'user_id'=>1,
+            'admin_id'=>1,
         ]);
     }
 }

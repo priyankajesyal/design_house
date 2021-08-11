@@ -41,7 +41,7 @@ class PortfolioController extends Controller
     {
         //  dd(Auth::user());
         $this->validate($request, [
-            'title' => 'required',
+            'title' => 'required|unique:portfolios,title',
             'description' => 'required',
             'images' => 'required'
         ]);
@@ -54,7 +54,7 @@ class PortfolioController extends Controller
                 $resp = $portfolio->portfolioImages()->create(['images' => $image]);
             }
         }
-
+        
         return redirect()->route('portfolio.index')
             ->with('success', 'Portfolio created successfully');
     }
