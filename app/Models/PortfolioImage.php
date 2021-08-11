@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class PortfolioImage extends Model implements \Czim\Paperclip\Contracts\AttachableInterface
 {
     use HasFactory;
-    
+
     use \Czim\Paperclip\Model\PaperclipTrait;
 
     protected $fillable = ['portfolio_id', 'images'];
