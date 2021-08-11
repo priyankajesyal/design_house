@@ -20,7 +20,6 @@ class PortfolioResource extends JsonResource
             'id' => $this->id,
             'title' => $this->title,
             'description' => $this->description,
-            'price' => $this->price,
             'images' => PortfolioImagesResource::collection($this->image),
         ];
     }
