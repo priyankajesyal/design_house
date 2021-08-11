@@ -20,6 +20,7 @@ class ManualPaymentResource extends JsonResource
             'id' => $this->id,
             'proposal_id' => $this->proposal_id,
             'amount' => $this->amount,
+            'type'=>$this->type,
             'receipt' => $this->receipt
         ];
     }

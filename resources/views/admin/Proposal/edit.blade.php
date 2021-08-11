@@ -12,7 +12,7 @@
                         <p>Portfolio Name: {{ $data->portfolio->title }}</p>
                     </div>
                     <div class="text-right col-md-6">
-                        <h4 class="text-capitalize">By: {{ $data->user->name }}</h4>
+                        <h4 class="text-capitalize">By:<a href="{{ route('users.show',$data->user->id) }}" style="color: white;">{{ $data->user->name }}</a></h4>
                     </div>
                 </div>
                 <div class="p-5 m-2 border content">
