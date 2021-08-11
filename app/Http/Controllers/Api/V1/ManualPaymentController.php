@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ManualPaymentRequest;
+use App\Http\Resources\ManualPaymentResource;
 use App\Models\ManualPayment;
 use Illuminate\Http\Request;
 
@@ -17,7 +18,7 @@ class ManualPaymentController extends Controller
     public function index()
     {
         $data = ManualPayment::paginate(5);
-        return Response(['data' => $data], 200);
+        return ManualPaymentResource::collection($data);
     }
 
 
