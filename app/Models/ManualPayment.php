@@ -12,7 +12,7 @@ class ManualPayment extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'proposal_id', 'milestone_id', 'amount', 'status', 'receipt', 'type'];
+    protected $fillable = ['user_id', 'proposal_id', 'amount', 'status', 'receipt', 'type'];
 
     public function proposal()
     {
