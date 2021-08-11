@@ -40,7 +40,7 @@ class BannerController extends Controller
     public function store(BannerRequest $request)
     {
 
-        $input = $request->merge(['user_id' => auth()->guard('admin')->user()->id])->except(['image']);
+        $input = $request->merge(['admin_id' => auth()->guard('admin')->user()->id])->except(['image']);
         // dd($input);
         if ($image = $request->file('image')) {
 

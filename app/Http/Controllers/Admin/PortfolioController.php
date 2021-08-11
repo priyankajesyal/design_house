@@ -46,7 +46,7 @@ class PortfolioController extends Controller
             'images' => 'required'
         ]);
 
-        $data = $request->merge(['user_id' => auth()->guard('admin')->user()->id])->except(['images']);
+        $data = $request->merge(['admin_id' => auth()->guard('admin')->user()->id])->except(['images']);
         $portfolio = Portfolio::create($data);
 
         if ($request->hasFile('images')) {
