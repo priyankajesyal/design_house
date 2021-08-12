@@ -61,7 +61,7 @@
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="shadow dropdown-menu dropdown-menu-right animated--grow-in" aria-labelledby="userDropdown">
-                                
+
                                 {{-- --}}
                                 <a class="dropdown-item" href="{{ route('adminLogout') }}">
                                     <i class="mr-2 text-gray-400 fas fa-sign-out-alt"></i>
@@ -174,7 +174,26 @@
                 document.getElementById("task").setAttribute("disabled", true);
             };
         });
+
+
+        function proposal1() {
+            $.ajax({
+                url: "{{ route('adminproposal.store') }}"
+
+                , data: {
+                    "_token": "{{ csrf_token() }}"
+
+                }
+                , type: "post"
+                , success: function(res) {
+                    console.log(res);
+                }
+            , });
+
+        }
+
     </script>
+
 
 
 

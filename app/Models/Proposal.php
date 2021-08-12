@@ -34,4 +34,8 @@ class Proposal extends Model
     {
         return ProposalImage::where('proposal_id', $this->id)->get();
     }
+
+    public function adminproposal(){
+        return $this->hasOne(AdminProposal::class);
+    }
 }

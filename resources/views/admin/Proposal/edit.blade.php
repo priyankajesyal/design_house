@@ -2,7 +2,7 @@
 
 @section('content')
 {{-- {{ $data }} --}}
-<div class="mr-0 row">
+<div class="row">
     <div class="p-5 mt-5 shadow col-md-12">
         <div class="row">
             <div class="m-3 col md-12">
@@ -12,7 +12,7 @@
                         <p>Portfolio Name: {{ $data->portfolio->title }}</p>
                     </div>
                     <div class="text-right col-md-6">
-                        <h4 class="text-capitalize">By:<a href="{{ route('users.show',$data->user->id) }}" style="color: white;">{{ $data->user->name }}</a></h4>
+                        <h4 class="text-capitalize">By: {{ $data->user->name }}</h4>
                     </div>
                 </div>
                 <div class="p-5 m-2 border content">
@@ -80,40 +80,57 @@
         </div>
 
         @if ( $data->manual->status == 'Accept')
-
         <div class="proposal">
             <div class="row">
                 <div class="col-md-12">
                     <div class="p-5 m-3 border">
-                        <h2 class="p-4 bg-dark text-light">Proposal</h2>
-                        <form action="{{ route('adminproposal.store') }}" method="post" enctype="multipart/form-data">
+                        <h2 class="p-4 bg-primary text-light">Proposal 1</h2>
+                        <form action="{{ route('adminproposal.store') }}" onclick="return proposal1()" method="post" enctype="multipart/form-data">
                             @csrf
                             <input type="hidden" name="proposal_id" value="{{ $data->id}}">
                             <div class="form-group">
                                 <label for="amt">Price</label>
+                                @if($data->adminproposal)
+                                <input type="text" name="price" value="{{ $data->adminproposal->price}}"class="form-control" disabled>
+                                @else
                                 <input type="text" name="price" class="form-control">
                                 @error('price')
-
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror
+                                @endif
                             </div>
                             <div class="form-group">
                                 <label for="amt">Comments</label>
+                                @if($data->adminproposal)
+                                <textarea class="form-control" name="comments" disabled>{{ $data->adminproposal->comments }}</textarea>
+                                @else
                                 <textarea class="form-control" name="comments"></textarea>
                                 @error('comments')
-
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror
+                                @endif
                             </div>
                             <div class="form-group">
-                                <label for="amt">Attachment</label>
+                                <label for="amt">Attachment</label><br>
+                                @if($data->adminproposal->adminproposalimages)
+                                 @foreach ($data->adminproposal->adminproposalimages as $images)
+                                 <img src="{{ $images->image}}" class="p-2 m-2 border" width="200" height="200">
+                                 @endforeach
+                                @else
                                 <input type="file" name="images[]" multiple="multiple">
                                 @error('images')
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror
-
+                                @endif
                             </div>
+
+                            @if($data->adminproposal->status=='Pending' || $data->adminproposal->status=='Accept' || $data->adminproposal->status=='Decline')
+                            <input type="submit" name="submit" class="btn btn-primary" disabled>
+                            @else
                             <input type="submit" name="submit" class="btn btn-primary">
+
+                            @endif
+
                         </form>
                     </div>
                 </div>
@@ -121,10 +138,129 @@
         </div>
 
 
-        <div id="pro"></div>
-        <button type="submit" class="btn btn-dark text-light add">Add Proposal</button>
+ <div class="proposal">
+     <div class="row">
+         <div class="col-md-12">
+             <div class="p-5 m-3 border">
+                 <h2 class="p-4 bg-primary text-light">Proposal 2</h2>
+                 <form action="{{ route('adminproposal.store') }}" onclick="return proposal1()" method="post" enctype="multipart/form-data">
+                     @csrf
+                     <input type="hidden" name="proposal_id" value="{{ $data->id}}">
+                     <div class="form-group">
+                         <label for="amt">Price</label>
+                         @if($data->adminproposal)
+                         <input type="text" name="price" value="{{ $data->adminproposal->price}}" class="form-control" disabled>
+                         @else
+                         <input type="text" name="price" class="form-control">
+                         @error('price')
+                         <div class="text-danger">{{ $message }}</div>
+                         @enderror
+                         @endif
+                     </div>
+                     <div class="form-group">
+                         <label for="amt">Comments</label>
+                         @if($data->adminproposal)
+                         <textarea class="form-control" name="comments" disabled>{{ $data->adminproposal->comments }}</textarea>
+                         @else
+                         <textarea class="form-control" name="comments"></textarea>
+                         @error('comments')
+                         <div class="text-danger">{{ $message }}</div>
+                         @enderror
+                         @endif
+                     </div>
+                     <div class="form-group">
+                         <label for="amt">Attachment</label><br>
+                         @if($data->adminproposal->adminproposalimages)
+                         @foreach ($data->adminproposal->adminproposalimages as $images)
+                         <img src="{{ $images->image}}" class="p-2 m-2 border" width="200" height="200">
+                         @endforeach
+                         @else
+                         <input type="file" name="images[]" multiple="multiple">
+                         @error('images')
+                         <div class="text-danger">{{ $message }}</div>
+                         @enderror
+                         @endif
+                     </div>
+
+                     @if($data->adminproposal->status=='Pending' || $data->adminproposal->status=='Accept' || $data->adminproposal->status=='Decline')
+                     <input type="submit" name="submit" class="btn btn-primary" disabled>
+                     @else
+                     <input type="submit" name="submit" class="btn btn-primary">
+
+                     @endif
+
+                 </form>
+             </div>
+         </div>
+     </div>
+ </div>
+
+
+
+ <div class="proposal">
+     <div class="row">
+         <div class="col-md-12">
+             <div class="p-5 m-3 border">
+                 <h2 class="p-4 bg-primary text-light">Proposal 3</h2>
+                 <form action="{{ route('adminproposal.store') }}" onclick="return proposal1()" method="post" enctype="multipart/form-data">
+                     @csrf
+                     <input type="hidden" name="proposal_id" value="{{ $data->id}}">
+                     <div class="form-group">
+                         <label for="amt">Price</label>
+                         @if($data->adminproposal)
+                         <input type="text" name="price" value="{{ $data->adminproposal->price}}" class="form-control" disabled>
+                         @else
+                         <input type="text" name="price" class="form-control">
+                         @error('price')
+                         <div class="text-danger">{{ $message }}</div>
+                         @enderror
+                         @endif
+                     </div>
+                     <div class="form-group">
+                         <label for="amt">Comments</label>
+                         @if($data->adminproposal)
+                         <textarea class="form-control" name="comments" disabled>{{ $data->adminproposal->comments }}</textarea>
+                         @else
+                         <textarea class="form-control" name="comments"></textarea>
+                         @error('comments')
+                         <div class="text-danger">{{ $message }}</div>
+                         @enderror
+                         @endif
+                     </div>
+                     <div class="form-group">
+                         <label for="amt">Attachment</label><br>
+                         @if($data->adminproposal->adminproposalimages)
+                         @foreach ($data->adminproposal->adminproposalimages as $images)
+                         <img src="{{ $images->image}}" class="p-2 m-2 border" width="200" height="200">
+                         @endforeach
+                         @else
+                         <input type="file" name="images[]" multiple="multiple">
+                         @error('images')
+                         <div class="text-danger">{{ $message }}</div>
+                         @enderror
+                         @endif
+                     </div>
+
+                     @if($data->adminproposal->status=='Pending' || $data->adminproposal->status=='Accept' || $data->adminproposal->status=='Decline')
+                     <input type="submit" name="submit" class="btn btn-primary" disabled>
+                     @else
+                     <input type="submit" name="submit" class="btn btn-primary">
+
+                     @endif
+
+                 </form>
+             </div>
+         </div>
+     </div>
+ </div>
+
+
+
+        {{-- <div id="pro"></div>
+        <button type="submit" class="btn btn-primary text-light add">Add Proposal</button> --}}
         @endif
         @endif
     </div>
 </div>
 @endsection
+

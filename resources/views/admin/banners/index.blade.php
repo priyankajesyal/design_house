@@ -18,12 +18,7 @@
 
 
     <h2 class="">Banners<a class="float-right btn btn-primary" href="{{ route('banners.create') }}"><i
-                class="fas fa-folder-plus"></i> Add New</a>
-
-
-
-
-    </h2>
+                class="fas fa-folder-plus"></i> Add New</a></h2>
     <hr>
 <div class="container">
     <div class="row">
