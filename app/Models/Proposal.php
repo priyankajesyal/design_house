@@ -36,6 +36,6 @@ class Proposal extends Model
     }
 
     public function adminproposal(){
-        return $this->hasOne(AdminProposal::class);
+        return $this->hasMany(AdminProposal::class);
     }
 }

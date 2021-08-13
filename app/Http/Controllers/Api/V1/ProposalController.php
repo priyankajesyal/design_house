@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\Api\V1;
 
-use App\Http\Controllers\Api\ApiController;
+use App\Models\Proposal;
+use App\Models\Portfolio;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ProposalResource;
-use App\Models\Proposal;
-use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Validator;
+use App\Http\Controllers\Api\ApiController;
 
 class ProposalController extends ApiController
 {
@@ -47,6 +48,9 @@ class ProposalController extends ApiController
 
         $data = $request->merge(['user_id' => auth()->user()->id])->except(['image']);
         $proposal = Proposal::create($data);
+        if($proposal){
+            $portfolio = Portfolio::where('id', $request->portfolio_id)->update(['proposal_status'=>1]);
+        }
 
         if ($request->hasFile('image')) {
             foreach ($request->image as $image) {

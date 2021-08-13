@@ -62,7 +62,7 @@ class BannerController extends Controller
      */
     public function show($id)
     {
-        $posts = Banner::where('id', $id)->get();
+        $posts = Banner::find($id);
         return view('admin.banners.show', compact('posts'));
     }
 

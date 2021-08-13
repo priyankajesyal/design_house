@@ -16,6 +16,7 @@
                             <th>Amount</th>
                             <th>Status</th>
                             <th>Task</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -40,6 +41,7 @@
                                     <option value="Completed" {{$value->task=='Completed'?'selected' : ''}}>Completed</option>
                                 </select>
                             </td>
+                            <td> <a class="btn btn-primary" onclick="return update({{ $value->id }})">Update</a> </td>
                         </tr>
                         @endforeach
                     </tbody>

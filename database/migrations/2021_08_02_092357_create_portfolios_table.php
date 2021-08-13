@@ -18,6 +18,7 @@ class CreatePortfoliosTable extends Migration
             $table->bigInteger('admin_id')->unsigned();
             $table->string('title');
             $table->text('description');
+            $table->boolean('proposal_status')->default('0');
             $table->foreign('admin_id')->references('id')->on('admins')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });

@@ -74,12 +74,9 @@ class MilestoneController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        dd($request->all());
-
-        MilestonePayment::find($id)->update($request->all());
-        return back();
+        //
     }
 
     /**
@@ -91,6 +88,14 @@ class MilestoneController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function milestoneupdate(Request $request)
+    {
+        //  dd($request->all());
+
+        MilestonePayment::find($request->id)->update($request->all());
+        return back();
     }
 
 }

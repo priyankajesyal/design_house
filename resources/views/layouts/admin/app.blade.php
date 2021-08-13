@@ -74,7 +74,7 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <div class="container">
+                <div class="container-fluid">
                     @yield('content')
                 </div>
             </div>
@@ -156,18 +156,26 @@
             });
         });
         /**
-         * Milestone button click
+         * Milestone update
          */
 
-        //  $(document).ready(function() {
-        //     $('#status').change(function(){
-        //           $(this).attr('disabled','disabled');
-        //     }) ;
-        //     $('#task').change(function(){
-        //     $(this).attr('disabled','disabled');
-        //     }) ;
+        function update(id) {
+            $.ajax({
+                url: "{{ route('milestoneupdate') }}"
 
-        //  });
+                , data: {
+                    _token: "{{ csrf_token() }}"
+                    , _method: "PUT"
+                    , id: id,
+                    status:'Paid',
+                    task:'Completed'
+                }
+                , type: "post"
+                , success: function(res) {
+                    console.log(res);
+                }
+            , });
+        };
 
         $(function() {
             document.getElementById("task").onchange = function() {
@@ -179,18 +187,15 @@
         function proposal1() {
             $.ajax({
                 url: "{{ route('adminproposal.store') }}"
-
                 , data: {
                     "_token": "{{ csrf_token() }}"
-
                 }
                 , type: "post"
                 , success: function(res) {
                     console.log(res);
                 }
             , });
-
-        }
+        };
 
     </script>
 

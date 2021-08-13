@@ -1,9 +1,8 @@
 @extends('layouts.admin.app')
 
 @section('content')
-    <h1 class="mb-3 text-center">View Design</h1>
-    <div class=" row">
-        <div class="container p-5 shadow">
+<div class="container  shadow">
+    <h1 class="mb-3 text-center bg-primary text-light">View Design</h1>
             <div class="row justify-content-center">
                 <div class="text-center col-md-8">
                     {{-- {{ $data->portfolioimages }} --}}
@@ -21,7 +20,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+     
 
     </div>
 @endsection

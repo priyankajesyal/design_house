@@ -44,6 +44,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'adminauth'], function () {
     Route::resource('banners', BannerController::class);
     Route::resource('users', UserController::class);
     Route::resource('milestone', MilestoneController::class);
+    Route::put('milestoneupdate', [MilestoneController::class,'milestoneupdate'])->name('milestoneupdate');
     Route::resource('manualpayment', ManualController::class);
     Route::resource('adminproposal', AdminProposalController::class);
 });
