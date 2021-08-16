@@ -1,29 +1,19 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\MilestonePayment;
-use App\Http\Controllers\Controller;
 
-class MilestoneController extends Controller
+class ViewController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        
-        // if ($request->has('user_id') && $request->has('proposal_id')) {
-            $data = MilestonePayment::where(
-                ['user_id' => $request->user_id],
-                ['proposal_id' => $request->proposal_id]
-            )->with(['milestone'])->get();
-            // dd($data);
-            return view('admin.milestones.index', ['data' => $data]);
-        // }
+        //
     }
 
     /**
@@ -44,6 +34,7 @@ class MilestoneController extends Controller
      */
     public function store(Request $request)
     {
+        //
     }
 
     /**
@@ -77,11 +68,8 @@ class MilestoneController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $portfolio = MilestonePayment::find($id);
-        $portfolio->update($request->all());
-        return back();
+        //
     }
-
 
     /**
      * Remove the specified resource from storage.
@@ -91,6 +79,6 @@ class MilestoneController extends Controller
      */
     public function destroy($id)
     {
-       
+        //
     }
 }

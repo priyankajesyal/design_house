@@ -80,7 +80,7 @@
         </div>
 
         @if ( $data->manual->status == 'Accept')
-
+        {{-- {{ $data->adminproposal }} --}}
         @if($data->adminproposal)
 
         11

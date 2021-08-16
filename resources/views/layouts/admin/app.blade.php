@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+
 
     <title>House Designs</title>
 
@@ -116,7 +118,9 @@
     <!-- Page level custom scripts -->
     <!-- <script src="{{ asset('admins/js/demo/chart-area-demo.js') }}"></script>
     <script src="{{ asset('admins/js/demo/chart-pie-demo.js') }}"></script> -->
-    <script>
+    <script type="text/javascript">
+        var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+
         $(document).ready(function() {
             $('#table_id').DataTable();
         });
@@ -138,9 +142,11 @@
                 }
             , });
         }
+
         /**
          * Add Proposal button
          */
+
         var counter = 0;
         $(document).ready(function() {
             $('#submit').click(function() {
@@ -159,29 +165,46 @@
          * Milestone update
          */
 
-        function update(id) {
-            $.ajax({
-                url: "{{ route('milestoneupdate') }}"
+        // function update(id) {
+        //     $.ajax({
+        //         url: "{{ route('milestoneupdate') }}"
 
-                , data: {
-                    _token: "{{ csrf_token() }}"
-                    , _method: "PUT"
-                    , id: id,
-                    status:'Paid',
-                    task:'Completed'
-                }
-                , type: "post"
-                , success: function(res) {
-                    console.log(res);
-                }
-            , });
-        };
+        //         , data: {
+        //             _token: "{{ csrf_token() }}"
+        //             , _method: "PUT"
+        //             , id: id,
+        //             status:'Paid',
+        //             task:'Completed'
+        //         }
+        //         , type: "post"
+        //         , success: function(res) {
+        //             console.log(res);
+        //         }
+        //     , });
+        // };
 
-        $(function() {
-            document.getElementById("task").onchange = function() {
-                document.getElementById("task").setAttribute("disabled", true);
-            };
-        });
+
+
+
+        // $(function() {
+        //     document.getElementById("task").onchange = function() {
+        //         document.getElementById("task").setAttribute("disabled", true);
+        //     };
+        // });
+
+
+    //   Milestone update disable
+
+    $(document).ready(function(e){
+     e.preventDefault();
+    $('#update').click(function(){
+       $('#update').attr('disabled', true);
+    })
+
+    });
+         
+
+        
 
 
         function proposal1() {
@@ -198,11 +221,6 @@
         };
 
     </script>
-
-
-
-
-
 </body>
 
 </html>

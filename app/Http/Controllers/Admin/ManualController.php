@@ -71,13 +71,11 @@ class ManualController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //  dd($request->all());
         $manualPayment = ManualPayment::find($id);
-        $manualPayment->update($request->all());
-        // dd($manualPayment);
         if ($request->input('type') == 'Manual') {
             $this->milestone($request);
         }
+        $manualPayment->update($request->all());
         return back();
     }
 
@@ -94,7 +92,6 @@ class ManualController extends Controller
 
     protected function milestone($request)
     {
-
         $data = [
             [
                 'user_id' => $request->user_id,
@@ -142,7 +139,6 @@ class ManualController extends Controller
                 'created_at' => now()
             ],
         ];
-
         MilestonePayment::insert($data);
     }
 }

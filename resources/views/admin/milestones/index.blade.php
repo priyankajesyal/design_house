@@ -1,5 +1,4 @@
 @extends('layouts.admin.app')
-
 @section('content')
 <h2 class="">Milestones</h2>
 <hr>
@@ -29,19 +28,23 @@
                             @else
                             <td>{{ $value->amount }}</td>
                             @endif
-                            <td>
-                                <select class="form-control" id="status" name="status">
-                                    <option value="Paid" {{$value->status=='Paid'?'selected' : ''}}>Paid</option>
-                                    <option value="Unpaid" {{$value->status=='Unpaid'?'selected' : ''}}>Unpaid</option>
-                                </select>
-                            </td>
-                            <td>
-                                <select class="form-control" id="task" name="task">
-                                    <option value="Pending" {{$value->task=='Pending'?'selected' : ''}}>Pending</option>
-                                    <option value="Completed" {{$value->task=='Completed'?'selected' : ''}}>Completed</option>
-                                </select>
-                            </td>
-                            <td> <a class="btn btn-primary" onclick="return update({{ $value->id }})">Update</a> </td>
+                            <form action="{{ route('milestone.update',$value->id) }}" method="post">
+                                @csrf
+                                @method('PUT')
+                                <td>
+                                    <select class="form-control" id="status" name="status">
+                                        <option value="Paid" {{$value->status=='Paid'?'selected' : ''}}>Paid</option>
+                                        <option value="Unpaid" {{$value->status=='Unpaid'?'selected' : ''}}>Unpaid</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select class="form-control" id="task" name="task">
+                                        <option value="Pending" {{$value->task=='Pending'?'selected' : ''}}>Pending</option>
+                                        <option value="Completed" {{$value->task=='Completed'?'selected' : ''}}>Completed</option>
+                                    </select>
+                                </td>
+                                <td><button class="btn btn-primary" id="update" type="submit" name="submit">Update</button></td>
+                            </form>
                         </tr>
                         @endforeach
                     </tbody>
