@@ -84,7 +84,7 @@
         @if($data->adminproposal)
 
         11
-        
+
         @foreach ($data->adminproposal as $proposal)
         <div class="proposal">
             <div class="row">
@@ -119,6 +119,7 @@
         @else
 
         22
+
         <div class="proposal">
             <div class="row">
                 <div class="col-md-12">
@@ -129,25 +130,20 @@
                             <input type="hidden" name="proposal_id" value="{{ $data->id}}">
                             <div class="form-group">
                                 <label for="amt">Price</label>
-
                                 <input type="text" name="price" class="form-control">
                                 @error('price')
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror
-
                             </div>
                             <div class="form-group">
                                 <label for="amt">Comments</label>
-
                                 <textarea class="form-control" name="comments"></textarea>
                                 @error('comments')
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror
-
                             </div>
                             <div class="form-group">
                                 <label for="amt">Attachment</label><br>
-
                                 <input type="file" name="images[]" multiple="multiple">
                                 @error('images')
                                 <div class="text-danger">{{ $message }}</div>
@@ -170,25 +166,20 @@
                             <input type="hidden" name="proposal_id" value="{{ $data->id}}">
                             <div class="form-group">
                                 <label for="amt">Price</label>
-
                                 <input type="text" name="price" class="form-control">
                                 @error('price')
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror
-
                             </div>
                             <div class="form-group">
                                 <label for="amt">Comments</label>
-
                                 <textarea class="form-control" name="comments"></textarea>
                                 @error('comments')
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror
-
                             </div>
                             <div class="form-group">
                                 <label for="amt">Attachment</label><br>
-
                                 <input type="file" name="images[]" multiple="multiple">
                                 @error('images')
                                 <div class="text-danger">{{ $message }}</div>
@@ -211,25 +202,20 @@
                             <input type="hidden" name="proposal_id" value="{{ $data->id}}">
                             <div class="form-group">
                                 <label for="amt">Price</label>
-
                                 <input type="text" name="price" class="form-control">
                                 @error('price')
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror
-
                             </div>
                             <div class="form-group">
                                 <label for="amt">Comments</label>
-
                                 <textarea class="form-control" name="comments"></textarea>
                                 @error('comments')
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror
-
                             </div>
                             <div class="form-group">
                                 <label for="amt">Attachment</label><br>
-
                                 <input type="file" name="images[]" multiple="multiple">
                                 @error('images')
                                 <div class="text-danger">{{ $message }}</div>

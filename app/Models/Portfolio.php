@@ -26,4 +26,8 @@ class Portfolio extends Model
     {
         return PortfolioImage::where('portfolio_id', $this->id)->get();
     }
+
+    public function admin(){
+        return $this->belongsTo(Admin::class);
+    }
 }

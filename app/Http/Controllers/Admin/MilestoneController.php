@@ -18,7 +18,7 @@ class MilestoneController extends Controller
 
         if ($request->has('user_id') && $request->has('proposal_id')) {
             $data = MilestonePayment::where(['user_id' => $request->user_id, 'proposal_id' => $request->proposal_id])->with(['milestone'])->get();
-            dd($data);
+            // dd($data);
             return view('admin.milestones.index', ['data' => $data]);
         }
     }

@@ -28,4 +28,6 @@ class MilestonePayment extends Model
     public function proposal(){
         return $this->belongsTo(Proposal::class,'proposal_id');
     }
+
+    
 }

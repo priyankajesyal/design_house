@@ -161,50 +161,7 @@
                 return true;
             });
         });
-        /**
-         * Milestone update
-         */
-
-        // function update(id) {
-        //     $.ajax({
-        //         url: "{{ route('milestoneupdate') }}"
-
-        //         , data: {
-        //             _token: "{{ csrf_token() }}"
-        //             , _method: "PUT"
-        //             , id: id,
-        //             status:'Paid',
-        //             task:'Completed'
-        //         }
-        //         , type: "post"
-        //         , success: function(res) {
-        //             console.log(res);
-        //         }
-        //     , });
-        // };
-
-
-
-
-        // $(function() {
-        //     document.getElementById("task").onchange = function() {
-        //         document.getElementById("task").setAttribute("disabled", true);
-        //     };
-        // });
-
-
-    //   Milestone update disable
-
-    $(document).ready(function(){
-    $('#update').click(function(){
-       $('#update').attr('disabled', true);
-    });
-
-    });
-         
-
-        
-
+       
 
         function proposal1() {
             $.ajax({

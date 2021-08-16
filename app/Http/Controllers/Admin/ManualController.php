@@ -73,7 +73,10 @@ class ManualController extends Controller
     {
         $manualPayment = ManualPayment::find($id);
         if ($request->input('type') == 'Manual') {
-            $this->milestone($request);
+            if($request->input('status') == 'Accept')
+            {
+                $this->milestone($request);
+            }
         }
         $manualPayment->update($request->all());
         return back();
@@ -99,7 +102,7 @@ class ManualController extends Controller
                 'milestone_id' => 1,
                 'status' => 'Paid',
                 'task' => 'Pending',
-                'amount' => (int)$request->amount,
+                'amount' => $request->amount,
                 'created_at' => now()
             ],
             [
@@ -108,7 +111,7 @@ class ManualController extends Controller
                 'milestone_id' => 2,
                 'status' => 'Unpaid',
                 'task' => 'Pending',
-                'amount' => 0,
+                'amount' => '',
                 'created_at' => now()
             ],
             [
@@ -117,7 +120,7 @@ class ManualController extends Controller
                 'milestone_id' => 3,
                 'status' => 'Unpaid',
                 'task' => 'Pending',
-                'amount' => 0,
+                'amount' => '',
                 'created_at' => now()
             ],
             [
@@ -126,7 +129,7 @@ class ManualController extends Controller
                 'milestone_id' => 4,
                 'status' => 'Unpaid',
                 'task' => 'Pending',
-                'amount' => 0,
+                'amount' => '',
                 'created_at' => now()
             ],
             [
@@ -135,7 +138,7 @@ class ManualController extends Controller
                 'milestone_id' => 5,
                 'status' => 'Unpaid',
                 'task' => 'Pending',
-                'amount' => 0,
+                'amount' => '',
                 'created_at' => now()
             ],
         ];

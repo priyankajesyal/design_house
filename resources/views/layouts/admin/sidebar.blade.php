@@ -55,5 +55,4 @@
     <div class="text-center d-none d-md-inline">
         <button class="border-0 rounded-circle" id="sidebarToggle"></button>
     </div>
-
 </ul>

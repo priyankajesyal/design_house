@@ -10,7 +10,7 @@ class ProposalImage extends Model implements \Czim\Paperclip\Contracts\Attachabl
     use HasFactory;
     use \Czim\Paperclip\Model\PaperclipTrait;
 
-    protected $fillable = ['portfolio_id', 'images'];
+    protected $fillable = ['proposal_id', 'images'];
 
     protected $appends  = ['image'];
 

@@ -21,7 +21,7 @@
                     <tbody>
                         @foreach ($data as $key => $value)
                         <tr>
-                            {{-- <td>{{ $key + 1 }}</td> --}}
+                            <td>{{ $key + 1 }}</td>
                             <td>{{ $value->milestone->title }}</td>
                             @if($value->amount==0)
                             <td>N/A</td>
@@ -32,16 +32,30 @@
                                 @csrf
                                 @method('PUT')
                                 <td>
+                                    @if($value->status=="Paid")
+                                    <select class="form-control" id="status" name="status" readonly>
+                                        <option value="Paid" {{$value->status=='Paid'?'selected' : ''}} >Paid</option>
+                                        <option value="Unpaid" {{$value->status=='Unpaid'?'selected' : ''}} >Unpaid</option>
+                                    </select>
+                                    @else
                                     <select class="form-control" id="status" name="status">
                                         <option value="Paid" {{$value->status=='Paid'?'selected' : ''}}>Paid</option>
                                         <option value="Unpaid" {{$value->status=='Unpaid'?'selected' : ''}}>Unpaid</option>
                                     </select>
+                                    @endif
                                 </td>
                                 <td>
+                                    @if($value->task=="Completed")
+                                    <select class="form-control" id="task" name="task" disabled>
+                                        <option value="Pending" {{$value->task=='Pending'?'selected' : ''}}>Pending</option>
+                                        <option value="Completed" {{$value->task=='Completed'?'selected' : ''}}>Completed</option>
+                                    </select>
+                                    @else
                                     <select class="form-control" id="task" name="task">
                                         <option value="Pending" {{$value->task=='Pending'?'selected' : ''}}>Pending</option>
                                         <option value="Completed" {{$value->task=='Completed'?'selected' : ''}}>Completed</option>
                                     </select>
+                                    @endif
                                 </td>
                                 <td><button class="btn btn-primary" id="update" type="submit" name="submit">Update</button></td>
                             </form>
