@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Proposal;
 use App\Models\Milestone;
 use App\Models\ManualPayment;
 use Illuminate\Database\Eloquent\Model;
@@ -22,5 +23,9 @@ class MilestonePayment extends Model
     public function milestone()
     {
         return $this->belongsTo(Milestone::class);
+    }
+
+    public function proposal(){
+        return $this->belongsTo(Proposal::class,'proposal_id');
     }
 }

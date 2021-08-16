@@ -15,15 +15,12 @@ class MilestoneController extends Controller
      */
     public function index(Request $request)
     {
-        
-        // if ($request->has('user_id') && $request->has('proposal_id')) {
-            $data = MilestonePayment::where(
-                ['user_id' => $request->user_id],
-                ['proposal_id' => $request->proposal_id]
-            )->with(['milestone'])->get();
-            // dd($data);
+
+        if ($request->has('user_id') && $request->has('proposal_id')) {
+            $data = MilestonePayment::where(['user_id' => $request->user_id, 'proposal_id' => $request->proposal_id])->with(['milestone'])->get();
+            dd($data);
             return view('admin.milestones.index', ['data' => $data]);
-        // }
+        }
     }
 
     /**
@@ -91,6 +88,5 @@ class MilestoneController extends Controller
      */
     public function destroy($id)
     {
-       
     }
 }

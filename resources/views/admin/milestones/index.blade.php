@@ -21,7 +21,7 @@
                     <tbody>
                         @foreach ($data as $key => $value)
                         <tr>
-                            <td>{{ $key + 1 }}</td>
+                            {{-- <td>{{ $key + 1 }}</td> --}}
                             <td>{{ $value->milestone->title }}</td>
                             @if($value->amount==0)
                             <td>N/A</td>

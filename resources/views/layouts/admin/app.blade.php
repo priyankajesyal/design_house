@@ -195,11 +195,10 @@
 
     //   Milestone update disable
 
-    $(document).ready(function(e){
-     e.preventDefault();
+    $(document).ready(function(){
     $('#update').click(function(){
        $('#update').attr('disabled', true);
-    })
+    });
 
     });
          

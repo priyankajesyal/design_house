@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\MilestonePayment;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Proposal extends Model
 {
@@ -37,5 +38,9 @@ class Proposal extends Model
 
     public function adminproposal(){
         return $this->hasMany(AdminProposal::class);
+    }
+
+    public function milestonepayments(){
+        return $this->hasMany(MilestonePayment::class);
     }
 }
